@@ -66,6 +66,13 @@ export default class Sandbox extends React.Component {
 
     this.scene.onTileSelected=((tile)=>{
       console.log('click',tile);
+      // 手动 Toggle 类型
+      if(tile.cell.userData.type === 'sold'){
+        tile.setType('default');
+      }
+      else{
+        tile.setType('sold');
+      }
     });
 
     this.scene.onTileHovered=((tile)=>{

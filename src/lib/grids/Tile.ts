@@ -89,6 +89,12 @@ export default class Tile {
       (this.material as MeshPhongMaterial).emissive.setHex(this.highlight);
     }
     this.selected = true;
+    if (this.cell.userData.type === 'sold') {
+      this.cell.userData.type ='default';
+    } else {
+      this.cell.userData.type = 'sold';
+
+    }
     return this;
   }
 
@@ -131,6 +137,9 @@ export default class Tile {
       (this.material as MeshPhongMaterial).color.set(Engine.Tools.randomizeRGB('194,178,128', 13));
       return;
     }
+    this.userData.terrain = 'PLAIN';
+    (this.material as MeshPhongMaterial).color.set(Engine.Tools.randomizeRGB('70,118,58', 13));
+    return;
   }
   
   setTerrain(e: number, m: number): void {

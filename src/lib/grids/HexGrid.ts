@@ -255,7 +255,7 @@ export default class HexGrid implements GridInterface {
     //   + 0.50 * Engine.Tools.noise2(32 * nx, 32 * ny));
     // m /= (1.00 + 0.75 + 0.33 + 0.33 + 0.33 + 0.50);
     // tile.setTerrain(e, m);
-    tile.setType(cell.userData?.type ?? '');
+    tile.setType(cell.userData?.type ?? 'default');
 
     cell.tile = tile;
 
