@@ -65,9 +65,13 @@ export default class Sandbox extends React.Component {
     });
 
     this.scene.onTileSelected=((tile)=>{
-      console.log(tile);
+      console.log('click',tile);
     });
-    
+
+    this.scene.onTileHovered=((tile)=>{
+      console.log('hover',tile);
+    });
+
     window.scene=this.scene;
 
     //this.map.generateOverlay(45);

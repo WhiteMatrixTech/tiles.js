@@ -32,6 +32,7 @@ export default class View implements ViewController {
 	private _selectedTile: Tile;
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	private _onTileSelected: (tile: Tile) => void
+	private _onTileHovered: (tile: Tile) => void
 	private _onLoaded: () => void;
 
 	private _mouseCaster: MouseCaster;
@@ -99,6 +100,10 @@ export default class View implements ViewController {
 
 	set onTileSelected(callback: (tile: Tile) => void) {
 		this._onTileSelected = callback
+	}
+
+	set onTileHovered(callback: (tile: Tile) => void) {
+		this._onTileHovered = callback
 	}
 
 	get selectedTile(): Tile {
@@ -341,6 +346,7 @@ export default class View implements ViewController {
 					if (tile !== null) {
 						(tile as Tile).select();
 						this._hoverTile = tile as Tile;
+						this._onTileHovered(tile as Tile);
 					}
 				}
 				if (evt === MouseCaster.OUT) {
