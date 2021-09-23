@@ -124,6 +124,14 @@ export default class Tile {
     this.geometry = null;
     this._emissive = null;
   }
+
+  setType(t: string): void {
+    if (t === 'sold') {
+      this.userData.terrain = 'BEACH';
+      (this.material as MeshPhongMaterial).color.set(Engine.Tools.randomizeRGB('194,178,128', 13));
+      return;
+    }
+  }
   
   setTerrain(e: number, m: number): void {
     

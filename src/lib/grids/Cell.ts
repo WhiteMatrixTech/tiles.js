@@ -9,7 +9,7 @@ export default class Cell {
   public s: number;
   public h: number;
   public tile: Tile;
-  public userData: {};
+  public userData: any;
   public walkable: boolean;
 
   public _calcCost: number;

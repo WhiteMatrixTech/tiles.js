@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
 import GUI from './dat';
 import './styles/sandbox.css';
-
+import data from './data.json';
 export default class Sandbox extends React.Component {
   params = {
     cameraControl: {
@@ -35,10 +35,12 @@ export default class Sandbox extends React.Component {
     // this constructs the cells in grid coordinate space
     this.gridSpace = new Engine.Grid({
       gridShape: Engine.RCT,
-      gridSize: 80,
+      gridSize: 2,
       cellSize: 20,
     });
+    this.gridSpace.fromJSON(data);
     this.map = new Engine.Map(this.gridSpace);
+    window.map=this.map;
 
     this.scene = new Engine.View(this.map, {
       element: document.querySelector('.App'),
