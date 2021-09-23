@@ -334,6 +334,8 @@ export default class View implements ViewController {
 					const cell = this.map.grid.pixelToCell(this._mouseCaster.position);
 					const t = this.map.getTileAtCell(cell);
 					if (t) t.toggle();
+					this._onTileSelected(tile as Tile);
+
 				}
 				if (evt === MouseCaster.OVER) {
 					if (tile !== null) {

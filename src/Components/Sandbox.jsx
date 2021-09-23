@@ -64,6 +64,12 @@ export default class Sandbox extends React.Component {
       }
     });
 
+    this.scene.onTileSelected=((tile)=>{
+      console.log(tile);
+    });
+    
+    window.scene=this.scene;
+
     //this.map.generateOverlay(45);
     this.scene.focusOn(this.map.group);
 
